@@ -87,7 +87,7 @@ All methods below this must be called on a `Hue` instance... for example:
 
 ``` js
 var Hue = require('hue-sdk').Hue;
-var client = new hue.Hue({
+var client = new Hue({
   host: '10.0.1.80',
   user: '2ecf0a841659d5a22427258f3297157f'
 });
