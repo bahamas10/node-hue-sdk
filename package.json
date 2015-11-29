@@ -1,0 +1,24 @@
+{
+  "name": "hue-sdk",
+  "version": "0.0.0",
+  "description": "Phillips Hue API library",
+  "main": "hue-sdk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahamas10/node-hue-sdk.git"
+  },
+  "keywords": [
+    "hue",
+    "phillips",
+    "lights"
+  ],
+  "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahamas10/node-hue-sdk/issues"
+  },
+  "homepage": "https://github.com/bahamas10/node-hue-sdk#readme"
+}
