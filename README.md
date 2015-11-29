@@ -133,6 +133,21 @@ http://www.developers.meethue.com/documentation/lights-api#15_set_light_attribut
 - `client.setLightAttributes(id, data, cb)`
 - `client.renameLight(id, data, cb)`
 
+If `data` is given as a string, it will be used as the "name" property of the
+body sent to the server, for example
+
+``` js
+client.setLightAttributes(0, {name: 'foo'}, function (err, result) {
+});
+```
+
+is the same as
+
+``` js
+client.renameLight(0, 'foo', function (err, result) {
+});
+```
+
 #### 1.6. Set light state
 
 http://www.developers.meethue.com/documentation/lights-api#16_set_light_state
@@ -151,40 +166,40 @@ http://www.developers.meethue.com/documentation/lights-api#17_delete_lights
 
 http://www.developers.meethue.com/documentation/groups-api#21_get_all_groups
 
-- `client.getAllGroups`
-- `client.groups`
+- `client.getAllGroups(cb)`
+- `client.groups(cb)`
 
 #### 2.2. Create group
 
 http://www.developers.meethue.com/documentation/groups-api#22_create_group
 
-- `client.createGroup`
+- `client.createGroup(data, cb)`
 
 #### 2.3. Get group attributes
 
 http://www.developers.meethue.com/documentation/groups-api#23_get_group_attributes
 
-- `client.getGroupAttributes`
-- `client.group`
+- `client.getGroupAttributes(id, cb)`
+- `client.group(id, cb)`
 
 #### 2.4. Set group attributes
 
 http://www.developers.meethue.com/documentation/groups-api#24_set_group_attributes
 
-- `client.setGroupAttributes`
-- `client.modifyGroup`
+- `client.setGroupAttributes(id, data, cb)`
+- `client.modifyGroup(id, data, cb)`
 
 #### 2.5. Set group state
 
 http://www.developers.meethue.com/documentation/groups-api#25_set_group_state
 
-- `client.setGroupState`
+- `client.setGroupState(id, data, cb)`
 
 #### 2.6. Delete group
 
 http://www.developers.meethue.com/documentation/groups-api#26_delete_group
 
-- `client.deleteGroup`
+- `client.deleteGroup(id, cb)`
 
 ### 3. Schedules API
 
@@ -192,34 +207,34 @@ http://www.developers.meethue.com/documentation/groups-api#26_delete_group
 
 http://www.developers.meethue.com/documentation/schedules-api-0#31_get_all_schedules
 
-- `client.getAllSchedules`
-- `client.schedules`
+- `client.getAllSchedules(cb)`
+- `client.schedules(cb)`
 
 #### 3.2. Create schedule
 
 http://www.developers.meethue.com/documentation/schedules-api-0#32_create_schedule
 
-- `client.createSchedule`
+- `client.createSchedule(data, cb)`
 
 #### 3.3. Get schedule attributes
 
 http://www.developers.meethue.com/documentation/schedules-api-0#33_get_schedule_attributes
 
-- `client.getScheduleAttributes`
-- `client.schedule`
+- `client.getScheduleAttributes(id, cb)`
+- `client.schedule(id, cb)`
 
 #### 3.4. Set schedule attributes
 
 http://www.developers.meethue.com/documentation/schedules-api-0#34_set_schedule_attributes
 
-- `client.setScheduleAttributes`
-- `client.modifySchedule`
+- `client.setScheduleAttributes(id, data, cb)`
+- `client.modifySchedule(id, data, cb)`
 
 #### 3.5. Delete schedule
 
 http://www.developers.meethue.com/documentation/schedules-api-0#35_delete_schedule
 
-- `client.deleteSchedule`
+- `client.deleteSchedule(id, cb)`
 
 ### 4. Scenes API
 
@@ -227,20 +242,20 @@ http://www.developers.meethue.com/documentation/schedules-api-0#35_delete_schedu
 
 http://www.developers.meethue.com/documentation/scenes-api#41_get_all_scenes
 
-- `client.getAllScenes`
-- `client.scenes`
+- `client.getAllScenes(cb)`
+- `client.scenes(cb)`
 
 #### 4.2. Create Scene
 
 http://www.developers.meethue.com/documentation/scenes-api#42_create_scene
 
-- `client.createScene`
+- `client.createScene(id, data, cb)`
 
 #### 4.3. Modify Scene
 
 http://www.developers.meethue.com/documentation/scenes-api#43_modify_scene
 
-- `client.modifyScene`
+- `client.modifyScene(id, light, data, cb)`
 
 #### 4.4. Recall a scene
 
@@ -262,58 +277,73 @@ http://www.developers.meethue.com/documentation/scenes-api#45_delete_scene
 
 http://www.developers.meethue.com/documentation/sensors-api#51_get_all_sensors
 
-- `client.getAllSensors`
-- `client.sensors`
+- `client.getAllSensors(cb)`
+- `client.sensors(cb)`
 
 #### 5.2. Create sensor
 
 http://www.developers.meethue.com/documentation/sensors-api#52_create_sensor
 
-- `client.createSensor`
+- `client.createSensor(data, cb)`
 
 #### 5.3. Find new sensors
 
 http://www.developers.meethue.com/documentation/sensors-api#53_autodiscover_sensors
 
-- `client.findNewSensors`
+- `client.findNewSensors(cb)`
 
 #### 5.4. Get new sensors
 
 http://www.developers.meethue.com/documentation/sensors-api#54_getnew_sensors
 
-- `client.newSensors`
+- `client.newSensors(cb)`
 
 #### 5.5. Get sensor
 
 http://www.developers.meethue.com/documentation/sensors-api#55_get_sensor
 
-- `client.getSensor`
-- `client.sensor`
+- `client.getSensor(id, cb)`
+- `client.sensor(id, cb)`
 
 #### 5.6. Update Sensor
 
 http://www.developers.meethue.com/documentation/sensors-api#56_update_sensor
 
-- `client.updateSensor`
-- `client.renameSensor`
+- `client.updateSensor(id, data, cb)`
+- `client.renameSensor(id, data, cb)`
+
+If `data` is given as a string, it will be used as the "name" property of the
+body sent to the server, for example
+
+``` js
+client.updateSensor(0, {name: 'foo'}, function (err, result) {
+});
+```
+
+is the same as
+
+``` js
+client.renameSensor(0, 'foo', function (err, result) {
+});
+```
 
 #### 5.7. Delete Sensor
 
 http://www.developers.meethue.com/documentation/sensors-api#57_delete_sensor
 
-- `client.deleteSensor`
+- `client.deleteSensor(id, cb)`
 
 #### 5.8. Change Sensor Config
 
 http://www.developers.meethue.com/documentation/sensors-api#58_change_sensor_config
 
-- `client.changeSensorConfig`
+- `client.changeSensorConfig(id, data, cb)`
 
 #### 5.9. Change Sensor State
 
 http://www.developers.meethue.com/documentation/sensors-api#59_change_sensor_state
 
-- `client.changeSensorState`
+- `client.changeSensorState(id, data, cb)`
 
 ### 6. Rules API
 
@@ -321,34 +351,34 @@ http://www.developers.meethue.com/documentation/sensors-api#59_change_sensor_sta
 
 http://www.developers.meethue.com/documentation/rules-api#61_get_all_rules
 
-- `client.getAllRules`
-- `client.rules`
+- `client.getAllRules(cb)`
+- `client.rules(cb)`
 
 #### 6.2. Get Rule
 
 http://www.developers.meethue.com/documentation/rules-api#62_get_rule
 
-- `client.getRule`
-- `client.rule`
+- `client.getRule(id, cb)`
+- `client.rule(id, cb)`
 
 #### 6.3. Create Rule
 
 http://www.developers.meethue.com/documentation/rules-api#63_create_rule
 
-- `client.createRule`
+- `client.createRule(data, cb)`
 
 #### 6.4. Update Rule
 
 http://www.developers.meethue.com/documentation/rules-api#64_update_rule
 
-- `client.updateRule`
-- `client.modifyRule`
+- `client.updateRule(id, data, cb)`
+- `client.modifyRule(id, data, cb)`
 
 #### 6.5. Delete Rule
 
 http://www.developers.meethue.com/documentation/rules-api#65_delete_rule
 
-- `client.deleteRule`
+- `client.deleteRule(id, cb)`
 
 ### 7. Configuration API
 
@@ -356,34 +386,34 @@ http://www.developers.meethue.com/documentation/rules-api#65_delete_rule
 
 http://www.developers.meethue.com/documentation/configuration-api#71_create_user
 
-- `client.createUser`
+- `client.createUser(data, cb)`
 
-NOTE: `hue.createUser` should be preferred here
+NOTE: `hue.createUser` is preferred instead
 
 #### 7.2 Get configuration
 
 http://www.developers.meethue.com/documentation/configuration-api#72_get_configuration
 
-- `client.getConfig`
-- `client.config`
+- `client.getConfig(cb)`
+- `client.config(cb)`
 
 #### 7.3. Modify configuration
 
 http://www.developers.meethue.com/documentation/configuration-api#73_modify_configuration
 
-- `client.modifyConfig`
+- `client.modifyConfig(data, cb)`
 
 #### 7.4. Delete user from whitelist
 
 http://www.developers.meethue.com/documentation/configuration-api#74_delete_user_from_whitelist
 
-- `client.deleteUser`
+- `client.deleteUser(user, cb)`
 
 #### 7.5. Get full state (datastore)
 
 http://www.developers.meethue.com/documentation/configuration-api#75_get_full_state_datastore
 
-- `client.fullState`
+- `client.fullState(cb)`
 
 ### 8. Info API
 
@@ -391,14 +421,20 @@ http://www.developers.meethue.com/documentation/configuration-api#75_get_full_st
 
 http://www.developers.meethue.com/documentation/info-api#81_get_all_timezones
 
-- `client.getAllTimezones`
-- `client.timezones`
+- `client.getAllTimezones(cb)`
+- `client.timezones(cb)`
 
 ### Generic Request
 
 - `client.request(opts, cb)`
+- `client.get(path, cb)`
 
-- `client.get(path, cb)
+``` js
+client.get('/lights', function (err, result) {
+  // will do a GET request to /api/<user>/lights
+  // and returned the JSON parsed HTTP body
+});
+```
 
 License
 -------
