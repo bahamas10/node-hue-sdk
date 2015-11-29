@@ -7,6 +7,11 @@ This library is intended to be a very thin wrapper around the Hue API.  It maps
 1-to-1 to all endpoints listed in
 http://www.developers.meethue.com/philips-hue-api
 
+Installation
+------------
+
+    npm install hue-sdk
+
 Usage
 -----
 
