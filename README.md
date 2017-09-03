@@ -273,8 +273,14 @@ http://www.developers.meethue.com/documentation/scenes-api#44_recall_scene
 
 http://www.developers.meethue.com/documentation/scenes-api#45_delete_scene
 
-> Scenes cannot be deleted from the bridge. When the maximum number of scenes
-> has been reached the scene which has been used the least is recycled.
+- `client.deleteScene(id, cb)`
+
+#### 4.6. Get Scene
+
+https://developers.meethue.com/documentation/scenes-api#46_get_scene
+
+- `client.getScene(id, cb)`
+- `client.scene(id, cb)`
 
 ### 5. Sensors API
 
