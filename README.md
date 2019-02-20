@@ -254,7 +254,7 @@ http://www.developers.meethue.com/documentation/scenes-api#41_get_all_scenes
 
 http://www.developers.meethue.com/documentation/scenes-api#42_create_scene
 
-- `client.createScene(id, data, cb)`
+- `client.createScene(data, cb)`
 
 #### 4.3. Modify Scene
 
