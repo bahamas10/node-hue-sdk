@@ -1,6 +1,6 @@
 {
   "name": "hue-sdk",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Phillips Hue API library",
   "main": "index.js",
   "scripts": {
